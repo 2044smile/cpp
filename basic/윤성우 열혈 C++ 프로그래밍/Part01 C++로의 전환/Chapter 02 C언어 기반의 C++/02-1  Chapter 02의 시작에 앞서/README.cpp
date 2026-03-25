@@ -26,9 +26,9 @@ int main()
     // *ptr1        →  주소로 가서 꺼낸 값 (5)
 
     // & 아래 경우들은 const 위치를 기준으로 설명 및 외우는 팁
-    // const int* ptr;  // const가 왼쪽 → 값을 못 바꿈
-    // int* const ptr;  // const가 오른쪽 → 포인터를 못 바꿈
-    // const int* const ptr; // 둘 다 const → 둘 다 못 바꿈
+    // & const int* ptr;  // const가 왼쪽 → 값을 못 바꿈
+    // & int* const ptr;  // const가 오른쪽 → 포인터를 못 바꿈
+    // & const int* const ptr; // 둘 다 const → 둘 다 못 바꿈
     // ! 경우 1
     // const int* ptr1 = &val1;
     // → ptr1은 val1의 주소를 가리키지만, const 때문에 *ptr1 = 10; 같은 변경 불가
