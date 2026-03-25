@@ -47,6 +47,14 @@ int main()
 
     *cptr2 = 20;
 
+    // ! 경우 3
+    int val3a = 30;
+    const int* const cptr3 = &val3a;
+    // 값 변경 불가, 주소 변경 불가
+    // *cptr3 = 40; // 에러! cptr3로 val3a의 값을 못 바꿈
+    // cptr3 = &val1; // 에러! cptr3는 const라서 가리키는 주소 변경 불가
+    val3a = 40; // 변수 직접 변경은 가능
+
 
     return 0;
 }
