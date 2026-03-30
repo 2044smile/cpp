@@ -18,4 +18,6 @@ int main()
     cout << t1 << endl;
     cout << t2 << endl;
     cout << fixed << setprecision(6) << t3 << endl;
+    // fixed 소수점 형태로 고정
+    // setprecision(6) 소수점 이하 6자리까지 출력하도록 설정한다
 }
