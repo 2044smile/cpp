@@ -5,6 +5,7 @@
 // 0.0000000001
 // 234560000.0000
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,5 +17,5 @@ int main()
 
     cout << t1 << endl;
     cout << t2 << endl;
-    cout << t3 << endl;
+    cout << fixed << setprecision(6) << t3 << endl;
 }
