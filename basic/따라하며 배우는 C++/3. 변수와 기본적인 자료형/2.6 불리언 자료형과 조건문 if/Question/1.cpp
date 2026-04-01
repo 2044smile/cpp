@@ -13,9 +13,9 @@ int main()
     //!Failed bool t = num / 2; 몫
     bool t = num % 2; //! 나머지
     if (t)
-        cout << "홀수입니다. " << t << endl;
+        cout << "홀수입니다: " << t << endl;
     else
-        cout << "짝수입니다. "<< t << endl;
+        cout << "짝수입니다: "<< t << endl;
 
 
     return 0;
