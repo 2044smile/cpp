@@ -45,5 +45,20 @@ int main()
     cout << (int)numeric_limits<unsigned char>::max() << endl; // 255
     cout << (int)numeric_limits<unsigned char>::lowest() << endl; // 0
 
+    // 줄바꿈 방법
+    cout << int('\n') << endl; //! 10: 줄바꿈의 아스키 코드 값 ("\n") 에러 발생, 문자열에 띄어쓰기가 있을 때만 " " 사용
+    cout << "This is first line \nsecond line" << endl; //! endl; 줄바꿈과 동시에 cout 버퍼에 있는 내용을 다 출력해라
+    cout << "This is first line " << flush; //! flush; 줄바꿈 없이 cout 버퍼에 있는 내용을 다 출력해라
+    cout << "This is first line " << endl;
+    cout << "second line";
+    
+    // tab키
+    cout << int('\t') << endl; //* 9: tab키의 아스키 코드 값
+    cout << "This is first line \tsecond line \" \? \a" << endl; //* \? : 물음표, \a : 알림음
+
+    wchar_t c;
+    char16_t c4;
+    char32_t c5; //* 이모티콘은 유니코드로 사용된다
+
     return 0;
 }
