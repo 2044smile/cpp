@@ -9,8 +9,8 @@ int main()
     string s1;
 
     // HelloWorld를 입력하면
-    cin >> c1;  // H 저장
-    cin >> s1;  // elloWorld 저장
+    cin >> c1;  //! H 저장
+    cin >> s1;  //! elloWorld 저장
 
     cout << c1 << endl;  // H 출력
     cout << s1 << endl;  // elloWorld 출력
