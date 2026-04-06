@@ -69,8 +69,8 @@ int balance_cents = 10 + 20; // 30 센트 정확함
 
 ```cpp
 double zero = 0.0;
-double inf = 5.0 / zero; // inf - "infinity 양의 무한대"
-double inf = -5.0 / zero; // -inf - 음의 무한대
+double inf = 5.0 / zero; // inf - "infinity, 양의 무한대"
+double inf = -5.0 / zero; // -inf - "음의 무한대"
 double nan = zero / zero; // nan - "Not a Number" 정의할 수 없는 값 그렇기에 자기 자신과도 같지 않다
 
 // nan은 자기 자신과도 같지 않다는 특성이 있음
@@ -80,4 +80,58 @@ cout << (nan == nan); // false! - 이래서 isnan() 쓰는 거
 if (isnan(nan)) {
     cout << "NaN is here!";
 }
+```
+
+## 3. 정수형과 Overflow
+
+|타입|크기|범위|
+|--|--|--|
+|short|2 bytes|-32,768~32,767|
+|int|4 bytes|-2.1억~2.1억|
+|long long|8 bytes|-922경~922경|
+
+### Overflow는 조용히 버그를 만든다
+
+```cpp
+int i = 2147483647 // int 최댓값
+i += 1;
+cout << i; // -2147483647 - 아무 오류 없이 조용히 뒤집힘
+```
+
+- 실제로 게임 점수, 카운터, 타이머 등 값이 계속 증가하는 곳에서 터지는 버그다.
+- 큰 수를 다룰 땐 습관적으로 `long long`을 쓰는 게 안전하다.
+
+`long long bigNum = 100000000000LL; // LL 접미사 붙여야 long long 으로 처리됨`
+
+## 4. 고정 크기 정수 (<cstdint>)
+
+- `int`는 플랫폼마다 크기가 다를 수 있다.
+- 네트워크, 파일 포맷, 임베디드 등 크기가 중요한 곳에서는 명시적 타입을 쓴다.
+
+```cpp
+int i;      // 크기가 정해져 있지 않음 (플랫폼 의존, 컴파일러/OS에 따라 달라짐)
+
+#include <cstdint>
+
+std::int8_t  // 1 bytes
+std::int16_t // 2 bytes
+std::int32_t // 4 bytes
+std::int64_t // 8 bytes
+
+// 주의: int8_t는 내부적으로 char이라 cout이 문자로 출력함
+std::int8_t x = 65;
+cout << x;                      // 'A' 출력
+cout << (int)x;                 // 65 출력
+cout << static_cast<int>(x);    // 65 출력 - 현업에서 권장하는 방식
+```
+
+### `static_cast` vs C스타일 캐스트 `(int)`
+
+```cpp
+// C스타일 - 뭐든 그냥 바꿔버림, 위험
+double d = 3.14;
+int i = (int)d;
+
+// static_cast - 안전한 변환인지 컴파일러가 확인
+int i = static_cast<int>(d);
 ```
