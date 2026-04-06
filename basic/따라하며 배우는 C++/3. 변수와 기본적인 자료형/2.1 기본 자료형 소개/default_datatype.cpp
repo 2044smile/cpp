@@ -18,5 +18,5 @@ int main()
     cout << (uintptr_t)static_cast<void*>(&a) << endl;
 
     cout << &i << endl; // 포인터 형식으로 출력 (읽기 불편함)
-    cout << (uintptr_t)static_cast<void*>(&i) << endl; // 정수 형식으로 변환해서 출력 (더 명확함)
+    cout << (uintptr_t)static_cast<void*>(&i) << endl; // ^ 정수 형식으로 변환해서 출력 (더 명확함)
 }
