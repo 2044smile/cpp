@@ -135,3 +135,5 @@ int i = (int)d;
 // static_cast - 안전한 변환인지 컴파일러가 확인
 int i = static_cast<int>(d);
 ```
+
+## 5. void와 void 포인터
