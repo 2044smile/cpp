@@ -135,5 +135,3 @@ int i = (int)d;
 // static_cast - 안전한 변환인지 컴파일러가 확인
 int i = static_cast<int>(d);
 ```
-
-## 3. 정수형과 Overflow
