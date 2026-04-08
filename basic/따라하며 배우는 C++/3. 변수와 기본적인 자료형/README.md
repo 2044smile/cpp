@@ -137,3 +137,25 @@ int i = static_cast<int>(d);
 ```
 
 ## 5. void와 void 포인터
+
+> `void*`는 "타입을 모르는 메모리 주소"다. C에서는 많이 썼지만 현대 C++에서는 거의 안 쓴다.
+
+```cpp
+// 이걸 보게 된다면 레거시 코드이거나 C 인터페이스일 가능성이 높음
+void* ptr = &someData;
+```
+
+## 6. 초기화 방식 정리
+
+```cpp
+int a = 5   // copy initialization - C 스타일, 여전히 많이 씀
+int b(5)    // direct initialization - 생성자 호출처럼 생긴 방식
+int c{5}    // uniform initialization - C++11 이후 권장
+```
+
+### `{}` 방식을 권장하는 이유
+
+```cpp
+int x{3.14};    // 컴파일 에러 - 데이터 손실 방지
+int y = 3.14;   // 그냥 3으로 잘림, 경고만 나오거나 경고도 안 나옴
+```
