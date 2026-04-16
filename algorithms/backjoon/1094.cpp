@@ -23,7 +23,6 @@ using namespace std;
 int main()
 {
     int target;
-    int temp;
     int cnt = 0;
     cin >> target;
 
