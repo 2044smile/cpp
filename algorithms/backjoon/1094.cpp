@@ -47,8 +47,12 @@ int main()
 using namespace std;
 
 int main(){
+    // C++의 cin, cout은 원래 C의 scanf, printf랑 동기화(sync) 되어 있음 즉, 서로 섞어 써도 문제 없게 맞춰주는 기능
+    // 이걸 끄면 cin, cout이 독립적으로 동작 -> 입출력 속도 빨라짐
     ios::sync_with_stdio(false);
+    // cin을 쓰기 전에 자동으로 cout을 flush(출력 비우기)함
     cin.tie(NULL);
+    // cout과 다른 스트림 연결을 끊는 것, 실무/코딩테스트에서는 영향 거의 없음
     cout.tie(NULL);
 
     int X;
