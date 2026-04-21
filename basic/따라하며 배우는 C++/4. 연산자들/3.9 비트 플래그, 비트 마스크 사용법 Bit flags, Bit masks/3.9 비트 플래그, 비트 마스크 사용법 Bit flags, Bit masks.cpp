@@ -17,7 +17,7 @@ int main()
     unsigned char items_flag = 0;
     cout << "No item " << bitset<8>(items_flag) << endl;  // 00000000
 
-    // item0 on
+    // item0 on 
     items_flag |= opt0; // |= 는 기존 비트는 유지하면서 비트를 추가로 켜는 연산
     cout << "Item0 obtained " << bitset<8>(items_flag) << endl;  // 00000000
 
