@@ -29,5 +29,11 @@ int main()
     items_flag &= ~opt3;
     cout << "Item3 lost " << bitset<8>(items_flag) << endl;  // 00000000
 
+    // has item1 ?
+    if (items_flag & opt1) {cout <<  "Has item1" << endl;}
+
+    // has item0 ?
+    if (items_flag & opt0) {cout <<  "Has item0" << endl;}
+
     return 0;
 }
