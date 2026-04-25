@@ -74,10 +74,9 @@ int main()
     items_flag |= (opt2 | opt3);
     cout << bitset<8>(opt2 | opt3) << endl;
     cout << "Item2, 3 obtained " << bitset<8>(items_flag) << endl; // 00001101
-    // 00001101 -> 00001011
     if ((items_flag & opt2) && !(items_flag & opt1))    // !(something & something) 갖고 있지 않을 경우
     {
-        //! 상태를 변경해주는 건 bitwise XOR
+        //! 상태를 변경해주는 건 bitwise XOR 복합 대입 연산자
         // items_flag ^= opt2;
         // items_flag ^= opt1;
         items_flag ^= (opt2 ^ opt1);
