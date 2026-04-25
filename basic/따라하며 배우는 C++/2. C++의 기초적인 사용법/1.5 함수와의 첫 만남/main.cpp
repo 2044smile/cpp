@@ -29,6 +29,13 @@ int main()
     cout << multiplyTwoNumbers(8, 13) << endl;
 
     printHelloWorld();
+    //^ lambda(이름 없는 간단한 함수) 함수와 std::function(함수를 변수처럼 저장하고 전달할 수 있게 하는 기능)을 활용하면 함수를 일급 객체처럼 사용할 수 있다
+    auto add = [](int a, int b){ return a + b; };
+    cout << add(3, 4) << endl;
+
+    int x = 10;
+    auto print = [x](){ cout << x << endl; };
+    print();
 
     return 0;
 }
