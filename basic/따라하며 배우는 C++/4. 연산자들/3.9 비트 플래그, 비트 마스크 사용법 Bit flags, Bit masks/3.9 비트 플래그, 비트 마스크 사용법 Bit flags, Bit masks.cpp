@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+    //^ 비트 플래그
     bool item1_flag = false;
     bool item2_flag = false;
     bool item3_flag = false;
@@ -82,6 +83,31 @@ int main()
         items_flag ^= (opt2 ^ opt1);
         cout << bitset<8>(items_flag) << endl;
     }
+
+    //^ 비트 마스크
+    // #FF0700 색을 표현할 때 1bytes 3개로 표현한다
+    // #RED,GREEN,BLUE
+    cout << "-----------" << endl;
+    const unsigned int red_mask = 0xFF0000;
+    cout << bitset<32>(red_mask) << endl;   // 00000000111111110000000000000000
+    const unsigned int green_mask = 0x00FF00;
+    cout << bitset<32>(green_mask) << endl;   // 00000000000000001111111100000000
+    const unsigned int blue_mask = 0x0000FF;
+    cout << bitset<32>(blue_mask) << endl;   // 00000000000000000000000011111111
+    
+    //
+    unsigned int pixel_color = 0xDAA520;    // 16진수 숫자
+    cout << bitset<32>(pixel_color) << endl;// 00000000110110101010010100100000
+
+    unsigned char red = (pixel_color & red_mask) >> 16;
+    cout << "Red: " << bitset<8>(red) << endl;
+    //! unsigned `char` green = pixel_color & green_mask; 
+    // `char`는 1 바이트이기 때문에 green은 보이지 않아서 int형으로 변경한다
+    unsigned char green = (pixel_color & green_mask) >> 8;  //! rightshift
+    cout << "Green: " << bitset<8>(green) << " " << int(green) << endl;  // 10100101 165
+    // 00100000 & 11111111, & 두 비트가 모두 1일 때만 1을 반환
+    unsigned char blue = pixel_color & blue_mask;
+    cout << "Blue: " << bitset<8>(blue) << endl;
 
     return 0;
 }
