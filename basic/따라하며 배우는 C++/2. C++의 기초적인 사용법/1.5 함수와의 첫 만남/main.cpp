@@ -30,12 +30,23 @@ int main()
 
     printHelloWorld();
     //^ lambda(이름 없는 간단한 함수) 함수와 std::function(함수를 변수처럼 저장하고 전달할 수 있게 하는 기능)을 활용하면 함수를 일급 객체처럼 사용할 수 있다
+    // Python에서는 기본적으로 함수가 일급 객체
+
+    //! Lambda
     auto add = [](int a, int b){ return a + b; };
     cout << add(3, 4) << endl;
 
     int x = 10;
     auto print = [x](){ cout << x << endl; };
     print();
+
+    //! std::function
+    #include <functional>
+    std::function<int(int, int)> f;
+    f = [](int a, int b){
+        return a+b;
+    };
+    cout << f(3,4) << endl;
 
     return 0;
 }
