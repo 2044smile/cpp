@@ -1,7 +1,18 @@
 #include <iostream>
+#include <string>
+
+template<typename T>
+void print(T value) {
+    std::cout << value << std::endl;
+}
 
 // 함수의 리턴 값에 대해서 auto를 사용할 수 있다
-auto add(double x, double y)
+auto add(int x, int y) -> int   //* 코드를 나중에 정리할 때 보기가 좋다, 후행 반환 타입(trailing return type)
+{
+    return x + y;
+}
+
+auto add(double x, double y) -> double
 {
     return x + y; 
 }
@@ -18,6 +29,10 @@ int main() {
 
     cout << add(1,2) << endl;;
     cout << add(1.1, 2.2) << endl;
+
+    print(1);           // T = int
+    print(3.14);        // T = double
+    print("hello");     // T = const char*
 
     return 0;
 }
