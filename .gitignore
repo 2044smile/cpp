@@ -1,1 +1,6 @@
 .DS_Store
+
+# 빌드 산출물
+build/
+*.dSYM/
+*.o
